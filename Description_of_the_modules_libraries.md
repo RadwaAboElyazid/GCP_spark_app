@@ -1,5 +1,7 @@
 ## Spark Implementation Documentation
-
+### Configration File
+- External congfigration json file include all the needed paramters, you need to change the valus to suit inside your enveroment and to be pass the file to the spark submit command.
+  
 ### Description of the modules and libraries in the code
 - The pyspark module includes the SparkContext and SQLContext classes.
 
@@ -14,4 +16,10 @@
 - json module, which is a standard module in Python for encoding and decoding JSON data.
 
 ### Dataproc Configuration
-- 
+- gcloud dataproc clusters create cluster-name \
+  --master-machine-type=c2-standard-30 \
+  --worker-machine-type=c2-standard-30 \
+  --master-boot-disk-type=pd-balanced \
+  --master-boot-disk-size=500GB \
+  --region=region \
+  --num-workers=10
