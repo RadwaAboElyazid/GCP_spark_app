@@ -15,8 +15,11 @@
 
 - json module, which is a standard module in Python for encoding and decoding JSON data.
 
-### partitioning policy
+### Partitioning Policy
 - While storing the data inside GCS, I partitioned the data by the week column and also the big query table.
+
+### Unit Test
+- There is attached test script with dumpy data to test the code output if it matches with the expected output.
 
 ### Dataproc Configuration
 - gcloud dataproc clusters create cluster-name \
