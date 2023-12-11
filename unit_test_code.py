@@ -55,6 +55,8 @@ week_data = spark.sql(sql_query)
 week_data = week_data.withColumn('week', ceil(dayofyear(lit(start_date)) / 7))
 final_source_df = source_1.join(week_data, "device_tac")
 final_source_df = final_source_df.withColumn('performance', col('trafficlevel') / col('energyconsumption'))
-final_source_df = final_source_df.orderBy("performance").limit(10)
+final_source_df = final_source_df.orderBy("performance").limit(5)
 final_source_df = final_source_df.select("week", "device_tac","device_manufacturer","energyconsumption", "trafficlevel", "performance")
+
+#The expected device_tac order is 3,5,4,1,2
 final_source_df.show()
