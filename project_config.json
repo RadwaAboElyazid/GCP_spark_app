@@ -1,0 +1,9 @@
+{
+   "path_to_your_credentials_json" : "add_your_credentials_json_path",
+   "bucket_name": "data_bucket",
+   "GSMA_device_source": "GSMA device.csv",
+   "project_name" : "add project_name", 
+   "dataset_name" : "add dataset_name",
+   "radio_wizard_source": "add table_name",
+   "GCS_sink_path" :  "add path"
+}
