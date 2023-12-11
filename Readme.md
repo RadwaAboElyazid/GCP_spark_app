@@ -29,3 +29,7 @@
   --master-boot-disk-size=500GB \
   --region=region \
   --num-workers=10
+
+### Assumptions
+- Device_tac PK at GSMA Database.
+- Daily updates in the BigQuery source (Radio Wizard) affect the same record.
