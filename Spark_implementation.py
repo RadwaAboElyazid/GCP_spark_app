@@ -46,8 +46,7 @@ project_name = data["project_name"]
 dataset_name = data["dataset_name"]
 table_name = data["radio_wizard_source"]
 radio_wizard_BQ_df = spark.read.format("bigquery").option("project", project_name).option("dataset", dataset_name).option("table", table_name).load()
-
-
+radio_wizard_BQ_df = radio_wizard_BQ_df.withColumn('date', date_format(col('date_time_stamp'), 'yyyy-MM-dd'))
 #week_duration
 start_date = date.today().strftime("%Y-%m-%d")
 end_date = (datetime.strptime(start_date, "%Y-%m-%d") - timedelta(7)).strftime("%Y-%m-%d")
