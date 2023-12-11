@@ -65,7 +65,16 @@ radio_wizard_df = radio_wizard_df.withColumn('week', ceil(dayofyear(lit(start_da
 #inner join the tow sources
 final_source_df = GSMA_device_GCS_df.join(radio_wizard_df, "device_tac")
 
-#I assumed that the daily updates in the BigQuery source affect the same records, so there is no need for any aggregation on the 'energyconsumption' or 'trafficlevel' columns per device_tac per week.
+### NOTE ###
+"""
+#I assumed that the daily updates in the BigQuery source affect the same records,
+so there is no need for any aggregation on the 'energyconsumption' or 
+'trafficlevel' columns per device_tac per week.
+#If we have the other assumption that we have multiple insertion 
+per device_tac we will need extra
+transformation step to aggregate 
+energyconsumption' and 'trafficlevel' columns per device_tac per week.
+"""
 #calculate the performance column
 final_source_df = final_source_df.withColumn('performance', col('trafficlevel') / col('energyconsumption'))
 final_source_df = final_source_df.orderBy("performance").limit(10)
