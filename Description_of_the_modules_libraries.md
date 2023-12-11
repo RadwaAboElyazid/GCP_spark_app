@@ -15,6 +15,9 @@
 
 - json module, which is a standard module in Python for encoding and decoding JSON data.
 
+### partitioning policy
+- While storing the data inside GCS, I partitioned the data by the week column and also the big query table.
+
 ### Dataproc Configuration
 - gcloud dataproc clusters create cluster-name \
   --master-machine-type=c2-standard-30 \
